@@ -71,6 +71,7 @@ The project features an interactive menu accessible via buttons:
 
 5. **Power On**:
    - Power the ESP32 via USB or a battery pack.
+   - Before start to upload code to ESP32, type in terminal: `pio run --target uploadfs`
 
 6. **Monitor Output**:
    - Open the Serial Monitor to view captured data and debug information.
