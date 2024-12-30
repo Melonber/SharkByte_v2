@@ -29,7 +29,7 @@ DNSServer dnsServer;
 AsyncWebServer server(80);
 
 // Меню
-String menuItems[] = {"WiFi Networks", "Deauthe", "Start Honeypot"};
+String menuItems[] = {"WiFi Networks", "Deauth", "Start Honeypot"};
 int currentMenuIndex = 0;
 bool honeypotActive = false;
 
