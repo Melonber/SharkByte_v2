@@ -1,6 +1,6 @@
 # SharkByte_V2 Project
 
-Welcome to the **Honeypot Wi-Fi Project**, a compact and educational cybersecurity tool designed to simulate vulnerable Wi-Fi networks for research, learning, and testing purposes. This project uses the ESP32 microcontroller to create a honeypot that mimics a legitimate Wi-Fi network, attracting potential attackers and capturing insights into their behavior.
+Welcome to the **SharkByte_V2**, a compact and educational cybersecurity tool designed to simulate vulnerable Wi-Fi networks for research, learning, and testing purposes. This project uses the ESP32 microcontroller to create a honeypot that mimics a legitimate Wi-Fi network, attracting potential attackers and capturing insights into their behavior.
 
 ## Features
 
