@@ -81,7 +81,7 @@ This project is intended solely for educational and research purposes. The creat
 
 ## Contributing
 
-We welcome contributions to improve this project! Feel free to submit issues or pull requests via the [GitHub repository](https://github.com/yourusername/honeypot-wifi).
+I will appriciate contributions to improve this project! Feel free to submit issues or pull requests via the [GitHub repository]([https://github.com/yourusername/honeypot-wifi](https://github.com/Melonber/SharkByte_v2)).
 
 ## License
 
