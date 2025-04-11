@@ -22,16 +22,13 @@ void showSharkBootAnimation(Adafruit_SH1106G &display) {
   display.println("SharkByte");
   display.drawLine(0, 10, display.width(), 10, SH110X_WHITE);
   
-  // Анимация с акулой и прогресс-баром
   for(int i=0; i<=100; i+=5) {
     display.clearDisplay();
     
-    // Рисуем текст каждый кадр
     display.setCursor(15, 0);
-    display.println("EvilTwin Shark");
+    display.println("SharkByte");
     display.drawLine(0, 10, display.width(), 10, SH110X_WHITE);
     
-    // Анимация акулы (плавает слева направо)
     int shark_x = map(i, 0, 100, -8, display.width());
     int frame = (i/5) % 4; // Цикл по 4 кадрам
     

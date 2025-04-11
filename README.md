@@ -46,10 +46,7 @@
 1. Clone repository:
    ```bash
    git clone https://github.com/yourrepo/EvilTwin-ESP32.git
-2. Install dependencies: 
-   ```bash
-   pio lib install "Adafruit SH110X"
-   pio lib install "ESPAsyncWebServer-esphome"  
+2. Install dependencies from platformio.ini 
 3. Flash firmware:
    ```bash
    pio run --target upload
@@ -61,3 +58,7 @@
 
 ## ⚠️ Legal Disclaimer
 Warning: This project demonstrates security vulnerabilities for educational purposes only. Unauthorized use on networks you don't own is illegal. The creator disclaims all responsibility for misuse.
+
+## 📜 License
+This project is licensed under the [CC BY-NC 4.0 License](LICENSE).  
+Free for non-commercial educational use with attribution. Commercial use is not permitted.
