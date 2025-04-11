@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../feedio/Feedio"
+		},
+		{
+			"name": "SharkByte",
+			"path": "../SharkByte/SharkByte"
+		},
+		{
+			"name": "SharkByte_v2",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.tcc": "cpp"
+		}
+	}
+}

