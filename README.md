@@ -1,6 +1,4 @@
-# EvilTwin Wi-Fi Captive Portal Project
-
-![Project Banner](assets/banner.png)  
+# EvilTwin Wi-Fi Captive Portal Project 
 *ESP32-C3 based rogue access point with credential harvesting*
 
 ## Table of Contents
@@ -48,3 +46,18 @@
 1. Clone repository:
    ```bash
    git clone https://github.com/yourrepo/EvilTwin-ESP32.git
+2. Install dependencies: 
+   ```bash
+   pio lib install "Adafruit SH110X"
+   pio lib install "ESPAsyncWebServer-esphome"  
+3. Flash firmware:
+   ```bash
+   pio run --target upload
+
+### Key Components:
+- **DNSServer: Handles all DNS spoofing**
+- **AsyncWebServer: Manages HTTP traffic**
+- **SH1106G: OLED display controller**
+
+## ⚠️ Legal Disclaimer
+Warning: This project demonstrates security vulnerabilities for educational purposes only. Unauthorized use on networks you don't own is illegal. The creator disclaims all responsibility for misuse.
