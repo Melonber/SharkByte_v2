@@ -60,5 +60,5 @@
 Warning: This project demonstrates security vulnerabilities for educational purposes only. Unauthorized use on networks you don't own is illegal. The creator disclaims all responsibility for misuse.
 
 ## 📜 License
-This project is licensed under the [MIT License](LICENSE).  
-Free to use for educational purposes with proper attribution.
+This project is licensed under the [CC BY-NC 4.0 License](LICENSE).  
+Free for non-commercial educational use with attribution. Commercial use is not permitted.
