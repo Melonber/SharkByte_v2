@@ -1,14 +1,6 @@
 # EvilTwin Wi-Fi Captive Portal Project 
 *ESP32-C3 based rogue access point with credential harvesting*
 
-## Table of Contents
-- [Features](#-features)
-- [Hardware Requirements](#-hardware-requirements)
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [Code Structure](#-code-structure)
-- [Legal Disclaimer](#⚠️-legal-disclaimer)
-- [License](#-license)
 
 ## 🚀 Features
 
