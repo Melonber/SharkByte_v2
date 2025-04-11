@@ -8,6 +8,7 @@
 #include <Adafruit_SH110X.h>
 #include "credentials.h"
 #include "styles.h"
+#include "boot_animation.h"
 
 #define i2c_Address 0x3C
 #define SCREEN_WIDTH 128
@@ -47,9 +48,7 @@ void setup() {
     for(;;);
   }
   
-  display.display();
-  delay(2000);
-  display.clearDisplay();
+  showSharkBootAnimation(display);
   
   pinMode(BUTTON_SELECT, INPUT_PULLUP);
   pinMode(BUTTON_DOWN, INPUT_PULLUP);
