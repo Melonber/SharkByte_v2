@@ -34,7 +34,7 @@
 |-----------|---------------|------------|
 | ESP32-C3 DevKit | ESP32-C3-WROOM-02 | - |
 | OLED Display | SH1106 128x64 | SDA:GPIO4, SCL:GPIO5 |
-| Tactile Buttons | 6x6mm | Select:GPIO0, Down:GPIO1, Up:GPIO2 |
+| Tactile Buttons | 6x6mm | Select:GPIO3, Down:GPIO1, Up:GPIO2 |
 
 ## 📥 Installation
 
